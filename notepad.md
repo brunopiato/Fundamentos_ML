@@ -9,7 +9,8 @@ _Comunidade DS - 07 de março_
   - [3. Aprendizado supervisionado](#3-aprendizado-supervisionado)
   - [4. K-Nearest Neighbors (KNN)](#4-k-nearest-neighbors-knn)
     - [4.1. Métricas de avaliação](#41-métricas-de-avaliação)
-  - [5. Regressão Linear](#5-regressão-linear)
+  - [5. Regressões e regressão linear](#5-regressões-e-regressão-linear)
+    - [Regressão Linear](#regressão-linear)
 
 <!-- /TOC -->
 
@@ -56,7 +57,7 @@ _Comunidade DS - 07 de março_
 <br>
 
 ![Exemplo de KNN em duas dimensões](https://miro.medium.com/v2/resize:fit:1400/0*jqxx3-dJqFjXD6FA)
-<figcaption align = "left"><b>Fig. 1 - Exemplo de KNN em duas dimensões</b></figcaption>
+<figcaption align = "center"><b>Fig. 1 - Exemplo de KNN em duas dimensões</b></figcaption>
 
 ### 4.1. Métricas de avaliação
 - É necessário avaliar se o algoritmo de fato aprendeu a executar as tarefas determinadas e, para isso, usamos as métricas de avaliação de aprendizado
@@ -89,7 +90,7 @@ _Comunidade DS - 07 de março_
 <br>
 
   - ![Matriz de confusão e tipos de erro](https://miro.medium.com/v2/resize:fit:667/1*3yGLac6F4mTENnj5dBNvNQ.jpeg)
-<figcaption align = "left"><b>Fig. 3 - Matriz de confusão e tipos de erro</b></figcaption>
+<figcaption align = "center"><b>Fig. 3 - Matriz de confusão e tipos de erro</b></figcaption>
 
 <br>
 
@@ -111,11 +112,76 @@ $$ F1Score = {2TP \over ( 2TP + FP + FN)} $$
 <br>
 
 ![Métricas de avaliação a partir da matriz de confusão](https://2.bp.blogspot.com/-EvSXDotTOwc/XMfeOGZ-CVI/AAAAAAAAEiE/oePFfvhfOQM11dgRn9FkPxlegCXbgOF4QCLcBGAs/s1600/confusionMatrxiUpdated.jpg)
-<figcaption align = "left"><b>Fig. 3 - Matriz de confusão e tipos de erro</b></figcaption>
+<figcaption align = "center"><b>Fig. 3 - Matriz de confusão e tipos de erro</b></figcaption>
 
 <br>
 
+- Estes modelos, bem como suas métricas, podem ser facilmente implementados em bibliotecas como _scikit-learn_, _stastmoldel_ e _scipy_.
 
-## 5. Regressão Linear
 
+## 5. Regressões e regressão linear
+- No aprendizado supervisionado do tipo regressão estamos interessados em:
+  - **Estudar o fenômeno** de interesse a fim de compreender a relação entre as variáveis e com elas afetam a variável-alvo ("variável-resposta" ou "variável-dependente")
+  - **Elaborar um modelo matemático** capaz de prever o valor da variável-alvo com base nas variáveis-independentes ("variáveis-preditoras")
+- Sendo a variável-resposta numérica
+- Diversos algoritmos diferentes estimam o valor da variável-alvo, podendo ela ser a probabilidade de uma determinada classe e, assim, ser utilizados como algoritmos de classificação caso estipulemos um limiar de probabilidade.
+  - Regressão linear
+  - Regressão linear regulada (_lasso_ e _ridge_, ou _L1_ e _L2_)
+  - Regressão polinomial
+  - Regressão por redes neurais
+  - Regressão de árvores de decisão
+  - Regressão de florestas de aleatoriedade
+  - Regressão por KNN
+  - Regressão Gaussiana
 
+### Regressão Linear
+- Assumindo que a relação entre duas variáveis seja linear, ou seja, que variem proporcional e constantemente, modela a correlação entre estas variáveis
+- Uma vez que as relações entre variáveis podem ser de dois tipos: **determinística** ou **estocástica**
+  - **Determinística**: a relação entre as variáveis pode ser descrita com alta precisão e confiabilidade através de uma fórmula matemática (i.e. movimento retilíneo uniforme)
+  - **Estocástica**: a relação entre as variáveis pode ser descrita probabilisticamente, incorporando um valor de erro e incerteza (i.e. lances de uma moeda)
+- A regressão linear **descreve probabilisticamente** a relação entre duas ou mais variáveis
+- Esta relação pode ser descrita por uma reta em um gráfico de coordenadas x e y (caso tenhamos apenas duas variáveis de interesse). Esta reta é descrita matematicamente por uma função (fórmula da reta), que apresenta **coeficiente linear (intercepto)** e **coeficiente angular (inclinação da reta)**, assumindo o formato
+
+$$ y = a + bx $$
+
+<br>
+
+![Plano cartesiona reg linear](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LinearRegression.svg/1200px-LinearRegression.svg.png)
+<figcaption align = "center"><b>Fig. 4 - Plano cartesiano da distribuição dos valores de duas variáveis e a reta de regressão linear</b></figcaption>
+
+<br>
+
+- O **ajuste do modelo de regressão linear** aos dados é feito pelo método de ajuste dos **mínimos quadrados**, encontrando os valores de _a_ e _b_ que determinam uma reta com o menor erro possível
+- Uma vez estimados os valores dos coeficientes linear e angular, podemos usar a fórmula da reta para, sabendo o valor da variável _x_, estimar o valor da variável _y_
+- A diferença entre os valores estimados e observados para a variável-alvo (_y_) é chamado de erro ou **resíduo da reta**. 
+- O método dos quadrados mínimos encontra os valores dos coeficientes através dos valores do erro. A reta escolhida é aquela que tiver o **menor erro somado**. Contudo, como os erros podem acontecer por subestimativa ou superestimativa do valor de _y_, estes erros são elevados ao quadrado antes de serem somados para anular o efeito dos sinais positivos e negativos. Por este motivo este método de obtenção do valor da reta é chamado de **soma dos erros ao quadrado** (_Sum Square Error - SSE_)
+- A regressão linear assume algumas **premissas**, que são:
+  - A relação entre as variáveis é linear
+  - Os erros são independentes
+  - Os erros são normalmente distribuídos
+  - Os erros para cada valor previsto tem variâncias iguais
+- Existe uma série de meétricas de avaliação da regressão linear
+  - O _SSE (Sum of Square Error)_ é a métrica de quão ajustada aos pontos a reta está
+  - O _SSTO (Sum of Square Total)_ é a métrica de quão distantes da reta média estão os pontos
+  - O _SSR (Sum of Square of Regression)_ é a métrica de quão distante a reta de regressão está em relação à reta média
+  - Na imagem abaixo o _SSE_ pode ser compreendido como _RSS_; o _SSR_ pode ser compreendido como _ESS_; e o _SSTO_ pode ser compreendido como _TSS_
+
+![Métricas da regressão linear](https://i.stack.imgur.com/LpHPy.png)
+<figcaption align = "center"><b>Fig. 5 - Métricas da regressão linear</b></figcaption>
+
+<br>
+
+- A partir destes valores podemos estimar o valor de _R²_, que é uma métrica do quanto a reta de regressão é capaz de explocar os dados observador. O valor de _R²_ é dado pela fórmula:
+
+$$ R²={1-{RSS \over TSS}} $$
+- Ou seja, 1 menos a relação entre o quão ajustada a reta está aos pontos e o quão distante ela está em relação a reta média
+- Podemos tirar algumas conclusões a partir da leitura desta fórmula 
+  - Quando _RSS_ (_SSE_) e _TSS_ (_SSTO_) são muito próximas, a razão se aproxima de 1 e, ao ser subtraída de 1, resulta em um baixo valor de _R²_, indicando que a reta de regressão é tão boa quanto a reta da média, ou seja, a pior reta possível, para explicar os dados
+  - Quanto maior o valor de _R²_, menor é o erro _RSS_ (_SSE_) em relação ao erro _TSS_ (_SSTO_), isto é, menor é o erro residual comparado com o erro da reta média e, portanto, melhor é a reta de regressão para explicar o fenômeno de interesse
+- Contudo o valor de _R²_, é muito sensível a _outliers_, uma vez que as métricas usadas para calculá-lo são elevadas ao quadrado.
+- Estes modelos, bem como suas métricas, podem ser facilmente implementados em bibliotecas como _scikit-learn_, _stastmoldel_ e _scipy_.
+- Outras __métricas de performance__ do modelo podem ser aplicadas, como
+  - _Erro médio quadrado_ (_Mean Squared Error - MSE_): calcula a média dos erros elevados ao quadrado entre os valores reais ou previstos. Sofre grande influencia de _outliers_ além de estar em escala quadrática em relação aos dados, uma vez que foi elevado ao quadrado. É chamado de função de perda (_loss function_) por ser uma forma de calcular o erro do modelo
+  - _Erro médio absoluto_ (_Mean Absolute Error - MAE_): ao invés de usar o quadrado para anular o efeito dos sinais dos erros, utiliza o módulo, mantendo a escala da medida de erro igual à escala original dos dados, reduzindo também o efeito dos _outliers_
+  - _Erro médio_ (_Mean Error - ME_): mantém o sinal dos erros ao calcular a média de modo que mantenhamos a informação de subestimação ou superestimação do modelos. Podemos saber para "qual lado" o modelo está errando mais
+  - _Raiz do erro médio ao quadrado_ (_Root Square Mean Error - RMSE_): extrai a raiz do MSE para retornar o valor do erro para a mesma escala dos dados
