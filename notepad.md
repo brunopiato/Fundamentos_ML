@@ -10,7 +10,7 @@ _Comunidade DS - 07 de março_
   - [4. K-Nearest Neighbors (KNN)](#4-k-nearest-neighbors-knn)
     - [4.1. Métricas de avaliação](#41-métricas-de-avaliação)
   - [5. Regressões e regressão linear](#5-regressões-e-regressão-linear)
-    - [Regressão Linear](#regressão-linear)
+    - [5.1. Regressão Linear](#51-regressão-linear)
 
 <!-- /TOC -->
 
@@ -134,7 +134,7 @@ $$ F1Score = {2TP \over ( 2TP + FP + FN)} $$
   - Regressão por KNN
   - Regressão Gaussiana
 
-### Regressão Linear
+### 5.1. Regressão Linear
 - Assumindo que a relação entre duas variáveis seja linear, ou seja, que variem proporcional e constantemente, modela a correlação entre estas variáveis
 - Uma vez que as relações entre variáveis podem ser de dois tipos: **determinística** ou **estocástica**
   - **Determinística**: a relação entre as variáveis pode ser descrita com alta precisão e confiabilidade através de uma fórmula matemática (i.e. movimento retilíneo uniforme)
