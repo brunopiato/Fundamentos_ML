@@ -26,7 +26,7 @@ _Comunidade DS - 07 de março_
 - __Aprendizado por reforço:__ ????
 
 ## 3. Aprendizado supervisionado
-- Depende de um rótulo a ser aprendido com base em uma série de características apresentadas para o modelo. É utilizado em problemas de classificação, isto é, quando queremos que a máquina classifique novas entradas com base nas classificações apresentadas a ela durante seu treinamento. Podem ser utilizado também em problemas de regressão, isto é, quando o rótulo a ser aprendido é numérico e contínuo, e não categórico.
+- Depende de um **rótulo** a ser aprendido com base em uma série de características apresentadas para o modelo. É utilizado em **problemas de classificação**, isto é, quando queremos que a máquina classifique novas entradas com base nas classificações apresentadas a ela durante seu treinamento. Podem ser utilizado também em **problemas de regressão**, isto é, quando o rótulo a ser aprendido é numérico e contínuo, e não categórico.
 - Existem muitos algoritmos que fazem classificação:
   - K-Nearest Neighbors (KNN)
   - Naive Bayes
@@ -43,16 +43,16 @@ _Comunidade DS - 07 de março_
 - Alguns algoritmos de classificação recebem adaptações e também podem ser usados para problemas de regressão
 
 ## 4. K-Nearest Neighbors (KNN)
-- É um algoritmo essencialmente de classificação com aprendizado supervisionado. Ele busca os K vizinhos mais próximos de um elemento para inferir a classificação mais provável deste elemento. Ele foi adaptado para ser utilizado também com problemas de regressão usando a média entre os valores dos K vizinhos, ao invés de uma votação de classe. 
-- O KNN realiza um cálculo de distância entre a entrada a ser classificada e seus vizinhos em um hiperespaço n-dimensional para determinar quais são os K vizinhos mais próximos e, então realizar uma votação de classe entre eles (ou seja, buscar a moda do valor de classificação entre os K vizinhos).
-  - Para tanto o algoritmo assume a premissa de que as variáveis escolhidas possam ser usadas para calcular distâncias entre elementos e são, portanto, numéricas.
+- É um **algoritmo essencialmente de classificação** com **aprendizado supervisionado**. Ele busca os K vizinhos mais próximos de um elemento para inferir a classificação mais provável deste elemento. Ele foi adaptado para ser utilizado também com problemas de regressão usando a média entre os valores dos K vizinhos, ao invés de uma votação de classe. 
+- O KNN realiza um cálculo de **distância entre a entrada a ser classificada e seus vizinhos em um hiperespaço n-dimensional** para determinar quais são os K vizinhos mais próximos e, então realizar uma votação de classe entre eles (ou seja, **buscar a moda do valor de classificação entre os K vizinhos**).
+  - Para tanto o algoritmo assume a **premissa** de que as variáveis escolhidas possam ser **usadas para calcular distâncias entre elementos** e são, portanto, numéricas.
 - O KNN pode ser utilizado para:
   - Sistemas de recomendação
   - Classificação de notícias
   - Agrupamento de clientes
   - Classificação de imagens
   - Sistemas de busca
-- O tempo de processamento é, entretanto, um fator limitante deste algoritmo, pois conforme o conjunto de dados aumenta em observações, aumenta também o número de cálculos de distância que o algoritmo deve executar. Outro fator limitante é a "maldição da dimensionalidade", isto é, conforme a dimensionalidade de um conjunto de dados cresce, aumenta também a distorção sobre os cálculos de distância entre os valores.
+- O **tempo de processamento** é, entretanto, um **fator limitante** deste algoritmo, pois conforme o conjunto de dados aumenta em observações, aumenta também o número de cálculos de distância que o algoritmo deve executar. Outro fator limitante é a **"maldição da dimensionalidade"**, isto é, conforme a dimensionalidade de um conjunto de dados cresce, aumenta também a distorção sobre os cálculos de distância entre os valores.
 
 <br>
 
@@ -60,7 +60,7 @@ _Comunidade DS - 07 de março_
 <figcaption align = "center"><b>Fig. 1 - Exemplo de KNN em duas dimensões</b></figcaption>
 
 ### 4.1. Métricas de avaliação
-- É necessário avaliar se o algoritmo de fato aprendeu a executar as tarefas determinadas e, para isso, usamos as métricas de avaliação de aprendizado
+- É necessário avaliar se **o algoritmo de fato aprendeu a executar as tarefas determinadas** e, para isso, usamos as métricas de avaliação de aprendizado
 - Existem diversas métricas e muitas delas são específicas para dados algoritmos ou tipos de aprendizado.
   - Matriz de confusão
   - Acurácia
@@ -85,7 +85,7 @@ _Comunidade DS - 07 de março_
   - A soma das duas linhas tem que ser igual à soma das duas colunas
 - A partir desta matriz podemos calcular algumas medidas:
   - __Acurácia:__ o número de acertos do valor predito em relação ao total de tentativas _(TN+TP/PredNO+PredYes)_. Neste caso: _50+100/55+110=0.909_
-  - Como a acurácia nem sempre é uma boa medida. Principalmente quando os conjuntos de dados estão desbalanceados (muito mais ocorrências de uma classe do que da outra), podemos usar outras medidas, como precisão e retorno.
+  - Como a acurácia nem sempre é uma boa medida, principalmente quando os conjuntos de dados estão desbalanceados (muito mais ocorrências de uma classe do que da outra), podemos usar outras medidas, como **precisão** e **retorno**.
 
 <br>
 
