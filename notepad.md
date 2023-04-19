@@ -65,7 +65,7 @@ _Comunidade DS - 07 de março_
   - Matriz de confusão
   - Acurácia
   - Precisão (_precision_)
-  - Retorno (_recall_)
+  - Retorno ou captura (_recall_)
 - __Matriz de confusão__ é uma tabela de contingência que tabula os falsos positivos, falsos negativos, verdadeiros positivos e verdadeiros negativos, de acordo com as classes que temos no conjunto de dados.
 
 ![Matriz de confusão](https://www.dataschool.io/content/images/2015/01/confusion_matrix2.png)
